@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>P5 Neighborhood Map</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+      <div id="wrapper" data-bind="css: { sidebarDisplayed: stylingClass() === true}">
+         <!-- Sidebar -->
+         <div id="sidebar-wrapper">
+            <ul class="sidebar-nav" id="key-locations" data-bind="foreach: locationList">
+               <li ><a data-bind="text: name, click: $parent.setLocation"></a></li>
+            </ul>
+         </div>
+         <!-- Main Content -->
+         <div id="page-content-wrapper">
+            <div class="container-fluid">
+               <div class="row" id="content">
+                  <!-- Map -->
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 map" id="map"></div>
+                  <!-- Filter box -->
+                  <div class="box-filter" id="filterBox">
+                     <div class="line-control">
+                        <div class="label">Filter</div>
+                        <!-- <input id="filter" data-bind="textInput: inputStr, valueUpdate:'blur'" placeholder="Filter for locations"> -->
+                        <input  data-bind="textInput: inputStr, valueUpdate:'blur'" />
+                     </div>
+                  </div >
+                  <!-- Get direction box-->
+                  <div class="box-filter" id="floating-panel">
+                     <div class="line-control">
+                        <div class="label">Start</div>
+                        <select data-bind="foreach: locationList, value: sta">
+                           <option data-bind="text: name"></option>
+                        </select>
+                     </div>
+                     <div class="line-control">
+                        <div class="label">End</div>
+                        <select data-bind="foreach: locationList, value: des">
+                           <option data-bind="text: name"></option>
+                        </select>
+                        <button data-bind="click: onChangeHandler">Search</button>
+                     </div>
+                  </div>
+                  <!-- Hide/Show button -->
+                  <a class="btn btn-success hidden-lg hidden-md hidden-sm" id="sidebar-toggle" data-bind="click: toggleStylingClass">Hide/Show key locations</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/knockout-3.4.0.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/knockout-jqAutocomplete.min.js"></script>
+      <script type="text/javascript" src="js/jquery.autocomplete.min.js"></script>
+      <script src="js/app.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBq0tovIHxfm0A9xZ1CXcxQOkictr2m580&language=en&libraries=places&callback=googleSuccess" onerror="googleError()" async defer></script>
+
+   </body>
+</html>

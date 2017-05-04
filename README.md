@@ -6,8 +6,8 @@ Local map of Yokohama, Japan
 Map can be opened by clicking the following link:
 http://huylllooo.github.io/frontend-neighborhood-map/
 
-Or:
-Select 'Download .zip' option, extract downloaded file somewhere and index.html file with your browser.
+Or you can clone the repository on your computer to run it locally:
+Select 'Download .zip' option, extract downloaded file and open index.html file with your browser.
 
 ### v0.1
 
